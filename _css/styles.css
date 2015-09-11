@@ -1,0 +1,60 @@
+/* ### Global Stuff ### */
+{margin: 0;padding: 0;border: 0;}
+
+/* ### FONTS ### */
+@font-face {
+	font-family: rpg_font;
+	text-rendering: inherit;
+	src: url('../_fonts/Volter__28Goldfish.ttf'); /* "../" means go up a directory */
+}
+@font-face {
+	font-family: title_font;
+	src: url('../_fonts/Stgotic.otf'); /* "../" means go up a directory */
+}
+h1 {
+	font-family:title_font; /* no .ttf */
+	font-size:18px;	
+}
+p, form, .optionPreview {
+	font-family:rpg_font; /* no .ttf */
+	font-size:18px;	
+}
+
+/* ### SUBMIT BOX ### */
+input[type=nameInputBox]{
+	vertical-align: top;
+    height: 42px;
+    width : 203px;
+}
+
+/* ### New Button ### */
+.optionStack {
+	display:inline-block;
+	border: 0;
+}
+.newButton {
+	background: url('../_images/b_background.png') no-repeat;
+	vertical-align: bottom;
+	border: 0;
+	margin-left: 3px;
+	margin-right: 3px;
+	height:42px;
+	width:203px;
+	font-family:rpg_font; /* no .ttf */
+	font-size:18px;
+}
+.newButton:hover {
+	/* This Controls the rollover buttons. */
+	opacity: 0.65;
+}
+.newButton:active {
+	/* This controls the 'push' the active state buttons. */
+	position:relative;
+	top:1px;
+}
+
+/* ### This controls the look of the preview text ### */
+.optionPreview {
+	display:none;
+	color: #A0A0A0;
+}

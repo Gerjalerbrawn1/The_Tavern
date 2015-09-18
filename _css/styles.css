@@ -58,3 +58,12 @@ input[type=nameInputBox]{
 	display:none;
 	color: #A0A0A0;
 }
+.square {
+	display:none;
+	background: url('../_images/drider.png') no-repeat;
+	border: 1px solid #000000;
+	position: static;
+	float: right;
+	width: 288px;
+	height: 320px;
+}

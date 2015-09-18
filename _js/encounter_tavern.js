@@ -1,5 +1,50 @@
+/****************
+#DEFAULT TAVERN SETUP
+*****************/
+encounters.default_tavern = {
+	startEncounter: function (playerData) {
+		PrintHeaderText('Welcome to The Sentinal');
+		PrintGameText('Tavern Default Description');
+		createDefaultTavernButtons();
+	},
+	endEncounterAndGetNext: function (buttonID) {
+		if (buttonID == "button_bartender") {
+			return "default_tavern"
+		} else if (buttonID == "button_hoodedfigure") {
+			return "default_tavern"
+		} else if (buttonID == "button_drider") {
+			return "drider_intro"
+		} else if (buttonID == "button_random_event") {
+			//This is where I need to put the function that grabs a random event?
+			return "tavern_random_01"
+		} else {
+			PrintGameText('ERROR');
+			return
+		}
+	}
+},
+encounters.leave_tavern = {
+	startEncounter: function (playerData) {
+		$("#button_leavetavern").remove();
+		PrintGameText('Seeing as you turn to go the ork holds his muscular arm across your chest, thoroughly blocking your exit.<br>He shakes his head.<br>"You go in, you buy a drink, and you reflect your life."<br>"People don&#39;t arrive at The Sentinal by accident."<br>It seems you have little choice in the matter.');
+		createAndAddButton('.button_stack', {classes: 'newButton', id: 'button_entertavern', text: 'Enter', click: getOnClick("leave_tavern"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
+	},
+	endEncounterAndGetNext: function (buttonID) {
+		if (buttonID == "button_entertavern") {
+			return "default_tavern"
+		} else {
+			PrintGameText('ERROR');
+			return
+		}
+	}
+},
+/****************
+#Drider Encounter
+*****************/
 encounters.drider_intro = {
 	startEncounter: function (playerData) {
+		//Shows the square div (aka sprite) Search .square to find the hide one.
+		$( ".square" ).show();
 		//Button Removal and Addition
 		createAndAddButton('.button_stack', {classes: 'newButton', id: 'drider_talk_01', text: 'Talk', click:getOnClick("drider_intro"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
 		if (playerData.sex == "female" && !GetPlayerCounter("drider_quest_accepted_counter") || GetPlayerCounter("drider_quest_accepted_counter") === 0) {
@@ -33,6 +78,7 @@ encounters.drider_intro = {
 		};
 	},
 	endEncounterAndGetNext: function (buttonID) {
+		$( ".square" ).hide();
 		if (buttonID == "drider_talk_01") {
 			var playercounter = GetPlayerCounter("drider_talk_counter")
 			if (playercounter === 0 || playercounter === 1 || !playercounter) {
@@ -93,7 +139,6 @@ encounters.drider_talk_02 = {
 		}
 	}
 },
-
 encounters.drider_talk_03 = {
 	startEncounter: function (playerData) {
 		createAndAddButton('.button_stack', {classes: 'newButton', id: 'drider_talk_04', text: 'Back', click:getOnClick("drider_talk_03"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
@@ -115,8 +160,6 @@ encounters.drider_talk_03 = {
 		}
 	}
 },
-
-
 encounters.drider_quest_01 = {
 	startEncounter: function (playerData) {
 		createAndAddButton('.button_stack', {classes: 'newButton', id: 'button_q_accept', text: 'Accept', click:getOnClick("drider_quest_01"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
@@ -135,6 +178,60 @@ encounters.drider_quest_01 = {
 		} else if (buttonID == "button_q_decline") {
 			SetPlayerCounter("drider_quest_accepted_counter", 0);
 			return "drider_intro"
+		}
+	}
+},
+/****************
+#Random Tavern Encounters
+*****************/
+encounters.tavern_random_01 = {
+	startEncounter: function (playerData) {
+		createAndAddButton('.button_stack', {classes: 'newButton', id: 'return', text: 'Back', click:getOnClick("tavern_random_01"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
+		PrintHeaderText('???');
+		//Change Body Text (Inital Description)
+		var tavern_random = "Ranndom Encounter 1";
+		SetPlayerCounter("tavern_random_01_counter", 1);
+		PrintGameText(tavern_random);
+	},
+	endEncounterAndGetNext: function (buttonID) {
+		if (buttonID == "return") {
+			return "default_tavern";
+		} else {
+			return "default_tavern";
+		}
+	}
+},
+encounters.tavern_random_02 = {
+	startEncounter: function (playerData) {
+		createAndAddButton('.button_stack', {classes: 'newButton', id: 'return', text: 'Back', click:getOnClick("tavern_random_02"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
+		PrintHeaderText('???');
+		//Change Body Text (Inital Description)
+		var tavern_random = "Ranndom Encounter 2";
+		SetPlayerCounter("tavern_random_02_counter", 1);
+		PrintGameText(tavern_random);
+	},
+	endEncounterAndGetNext: function (buttonID) {
+		if (buttonID == "return") {
+			return "default_tavern";
+		} else {
+			return "default_tavern";
+		}
+	}
+},
+encounters.tavern_random_03 = {
+	startEncounter: function (playerData) {
+		createAndAddButton('.button_stack', {classes: 'newButton', id: 'return', text: 'Back', click:getOnClick("tavern_random_031"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
+		PrintHeaderText('???');
+		//Change Body Text (Inital Description)
+		var tavern_random = "Ranndom Encounter 3";
+		SetPlayerCounter("tavern_random_03_counter", 1);
+		PrintGameText(tavern_random);
+	},
+	endEncounterAndGetNext: function (buttonID) {
+		if (buttonID == "return") {
+			return "default_tavern";
+		} else {
+			return "default_tavern";
 		}
 	}
 }

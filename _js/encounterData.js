@@ -5,30 +5,6 @@
 Remminder how this works:
 So when you run the START ENCOUNTER block as soon as you start the encounter, BUT you run the encounter AGAIN to move to the next encounter.
 */
-
-//Prints game text to the div.
-function PrintGameText(newText) {
-	$("#output_text").html(newText);
-}
-//Changes the title next div.
-function PrintHeaderText(newText) {
-	$("#title_name").html(newText);
-}
-
-function SetupEncounter() {
-	$(".newButton").remove();
-	mousePreviewLeave();
-	PrintGameText("");
-}
-
-function GetPlayerCounter (counterName) {
-	return playerCharacter.counters[counterName];
-}
-function SetPlayerCounter (counterName, value) {
-	playerCharacter.counters[counterName] = value;
-}
-
-
 var encounters = {
 	playerCreation_00: {
 		//See e_playerSetup.js
@@ -40,23 +16,57 @@ var encounters = {
 		//See e_playerSetup.js
 	},
 	default_tavern: {
-		//See e_tavern.js
+		//See encounter_tavern.js
 	},
 	leave_tavern: {
-		//See e_tavern.js
+		//See encounter_tavern.js
 	},
 	drider_intro: {
-		//See drider_encounter.js
+		//See encounter_tavern.js
 	},
 	drider_talk_01: {
-		//See drider_encounter.js
+		//See encounter_tavern.js
 	},
 	drider_talk_02: {
-		//See drider_encounter.js
+		//See encounter_tavern.js
 	},
 	drider_quest_01: {
-		//See drider_encounter.js
+		//See encounter_tavern.js
+	},
+	tavern_random_01: {
+		//See encounter_tavern.js
+	},	
+	tavern_random_02: {
+		//See encounter_tavern.js
+	},
+	tavern_random_03: {
+	//See encounter_tavern.js
 	}
+}
+
+//Prints game text to the div.
+function PrintGameText(newText) {
+	$("#output_text").html(newText);
+}
+//Changes the title next div.
+function PrintHeaderText(newText) {
+	$("#title_name").html(newText);
+}
+
+//Clears old encounter and preps for the new one.
+function SetupEncounter() {
+	$(".newButton").remove();
+	mousePreviewLeave();
+	PrintGameText("");
+}
+
+//Does what it says on the box.
+function GetPlayerCounter (counterName) {
+	return playerCharacter.counters[counterName];
+}
+//Does what it says on the box.
+function SetPlayerCounter (counterName, value) {
+	playerCharacter.counters[counterName] = value;
 }
 
 // to show the text in this encounter, pass it the id like "playerCreation_01"

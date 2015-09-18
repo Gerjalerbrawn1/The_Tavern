@@ -12,13 +12,15 @@ var previewTextLookup = {
 	"button_human": "+ 1 STR<br>+ 1 CHA<br>Perk: Compatible",
 	"button_elf": "- 2 STR<br>+ 2 DEX<br>+ 3 CHA<br>Perk: Ageless", 
 	"button_dwarf": "+ 4 STR<br>Perk: Scottish Accent",
-	"submitName": "Tell the ork your name.",
+	"submitName": "Tell the ork your name.",	
+	"return": "Go back.",
 	"button_drider": "Drider",
 	"drider_leave": "Return to the tavern.",
 	"button_hoodedfigure": "Hooded Guy",
 	"button_bartender": "The Bartender",
 	"button_entertavern": "Enter the tavern.",
-	"button_leavetavern": "Venture back into the storm."
+	"button_leavetavern": "Venture back into the storm.",
+	"button_random_event": "Take a closer look."
 }
 //mouse preview creator
 function mousePreviewEnter (event) { 
@@ -63,7 +65,6 @@ function chooseRace (event) {
 //Make these for each button that runs a unique encounter
 $("#button_drider").click(getOnClick("default_tavern"));
 
-
 //So this takes the above list finds adds the encounter ID and then Runs whatever encounter is returned
 function getOnClick (encounterID) {
 	return function (event) {
@@ -73,8 +74,6 @@ function getOnClick (encounterID) {
 
 
 //Kasey's Code!
-
-//WHAT A BUTON LOOKS LIKE http://screencast.com/t/VS38RzEqmLew
 //Add specific things here when making a unique button thingy (like mouseleave, functions, etc)
 function makeButton(params) {
 	var newButton = $("<button/>");
@@ -128,7 +127,8 @@ function createDefaultTavernButtons () {
 	var tavernIds = {
 		"button_bartender": "Bartender",
 		"button_hoodedfigure": "Hooded Figure",
-		"button_drider": "Drider"
+		"button_drider": "Drider",
+		"button_random_event": "???"
 	}
 	//The if statement that changes the names	
 	if(GetPlayerCounter("drider_intro_counter") == 1) {

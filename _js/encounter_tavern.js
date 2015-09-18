@@ -1,3 +1,6 @@
+//Add any random encounters here that are going to be used.
+var TAVERN_POSSIBLE_RANDOM_ENCOUNTERS = ["tavern_random_01", "tavern_random_02", "tavern_random_03"];
+
 /****************
 #DEFAULT TAVERN SETUP
 *****************/
@@ -14,9 +17,8 @@ encounters.default_tavern = {
 			return "default_tavern"
 		} else if (buttonID == "button_drider") {
 			return "drider_intro"
-		} else if (buttonID == "button_random_event") {
-			//This is where I need to put the function that grabs a random event?
-			return "tavern_random_01"
+		} else if(buttonID == "button_random_event") {
+			return GetRandomTavernEncounter("tavern_random_03"); // this is so much easier if you have lots of possible encounters!
 		} else {
 			PrintGameText('ERROR');
 			return

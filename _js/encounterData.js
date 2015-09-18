@@ -74,12 +74,33 @@ function RunEncounter(encounterId) {
 	SetupEncounter();
 	encounters[encounterId].startEncounter(playerCharacter); // assume playerData is defined elsewhere and has your player data
 }
-
 // for use with your onclick, where you pass it the decision text and it gives you the next encounter
 function GetNextEncounter(encounterId, decision) {
 	return encounters[encounterId].endEncounterAndGetNext(decision);
 }
+function GetRandomArrayElement(array) {
+	// Math.random provides a random decimal number between 0 and 1 (can be 0, but won't be 1)
+	// By multiplying by the length of the array, we extend the random range to be 0 to the length (so 0-4 if the array length is 4)
+	// Math.floor ensures that this number is an integer by rounding down. Indicies can only be integers. 
+	// So, at the end, we have any number from 0 to array.length - 1 (because the random doesn't ever produce 1)
+	// (In our 4 element example, this yields a random in range 0 to 3, which captures all valid indicies!)
+	var randomNum = Math.floor(Math.random() * array.length);
+	return array[randomNum];
+}
 
+//this generates random tavern encounters based on the array found in encounter_tavern.js
+function GetRandomTavernEncounter(optionToDisclude) {
+	var possibleEncounters = TAVERN_POSSIBLE_RANDOM_ENCOUNTERS;
+	if(optionToDisclude) {
+		possibleEncounters = [];
+		for(var encounter in TAVERN_POSSIBLE_RANDOM_ENCOUNTERS) {
+			if(encounter != optionToDisclude) {
+				possibleEncounters.push(encounter);
+			}
+		}
+	}
+	return GetRandomArrayElement(possibleEncounters);
+}
 //So this sets up the initiaization of the game.
 $(document).ready(function () {
 	RunEncounter("playerCreation_00");

@@ -87,20 +87,6 @@ function GetRandomArrayElement(array) {
 	var randomNum = Math.floor(Math.random() * array.length);
 	return array[randomNum];
 }
-
-//this generates random tavern encounters based on the array found in encounter_tavern.js
-function GetRandomTavernEncounter(optionToDisclude) {
-	var possibleEncounters = TAVERN_POSSIBLE_RANDOM_ENCOUNTERS;
-	if(optionToDisclude) {
-		possibleEncounters = [];
-		for(var encounter in TAVERN_POSSIBLE_RANDOM_ENCOUNTERS) {
-			if(encounter != optionToDisclude) {
-				possibleEncounters.push(encounter);
-			}
-		}
-	}
-	return GetRandomArrayElement(possibleEncounters);
-}
 //So this sets up the initiaization of the game.
 $(document).ready(function () {
 	RunEncounter("playerCreation_00");

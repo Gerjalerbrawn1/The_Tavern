@@ -1,6 +1,22 @@
 //Add any random encounters here that are going to be used.
 var TAVERN_POSSIBLE_RANDOM_ENCOUNTERS = ["tavern_random_01", "tavern_random_02", "tavern_random_03"];
 
+//this generates random tavern encounters based on the array found in encounter_tavern.js
+function GetRandomTavernEncounter(optionToDisclude) {
+	var possibleEncounters = TAVERN_POSSIBLE_RANDOM_ENCOUNTERS;
+	if(optionToDisclude) {
+		possibleEncounters = [];
+		for(var i = 0; i < TAVERN_POSSIBLE_RANDOM_ENCOUNTERS.length; i++) {
+		var encounter = TAVERN_POSSIBLE_RANDOM_ENCOUNTERS[i];
+			if(encounter != optionToDisclude) {
+				possibleEncounters.push(encounter);
+			}
+		}
+	}
+	return GetRandomArrayElement(possibleEncounters);
+}
+
+
 /****************
 #DEFAULT TAVERN SETUP
 *****************/
@@ -18,7 +34,7 @@ encounters.default_tavern = {
 		} else if (buttonID == "button_drider") {
 			return "drider_intro"
 		} else if(buttonID == "button_random_event") {
-			return GetRandomTavernEncounter("tavern_random_03"); // this is so much easier if you have lots of possible encounters!
+			return GetRandomTavernEncounter(); // this is so much easier if you have lots of possible encounters!
 		} else {
 			PrintGameText('ERROR');
 			return
@@ -222,7 +238,7 @@ encounters.tavern_random_02 = {
 },
 encounters.tavern_random_03 = {
 	startEncounter: function (playerData) {
-		createAndAddButton('.button_stack', {classes: 'newButton', id: 'return', text: 'Back', click:getOnClick("tavern_random_031"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
+		createAndAddButton('.button_stack', {classes: 'newButton', id: 'return', text: 'Back', click:getOnClick("tavern_random_03"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
 		PrintHeaderText('???');
 		//Change Body Text (Inital Description)
 		var tavern_random = "Ranndom Encounter 3";

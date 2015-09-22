@@ -1,7 +1,7 @@
 encounters.playerCreation_00 = {
 	startEncounter: function (playerData) {
 		PrintHeaderText("On Stormy Nights");
-		PrintGameText('"Walking down the side ally as the night air howls. You hear sounds from a tavern up ahead and as you approach the doorway.<br> Before you can say anything two hands grab you and drag you into the entrance. This ork bouncer was huge and looks you over.<br>What do we have here? he snorts. <br>You remove your hood revealing a..."');
+		PrintGameText('Walking down the side ally as the night air howls. You hear sounds from a tavern up ahead and as you approach the doorway.<br> Before you can say anything two hands grab you and drag you into the entrance. This ork bouncer was huge and looks you over.<br>"What do we have ere?"" he snorts. <br>You remove your hood revealing a...');
 		//This creates the buttons
 		createDefaultSetupButtons();
 	},

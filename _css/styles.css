@@ -60,10 +60,10 @@ input[type=nameInputBox]{
 }
 .square {
 	display:none;
-	background: url('../_images/drider.png') no-repeat;
+	background: no-repeat;
 	border: 1px solid #000000;
 	position: static;
 	float: right;
-	width: 288px;
-	height: 320px;
+	width: 364px;
+	height: 478px;
 }

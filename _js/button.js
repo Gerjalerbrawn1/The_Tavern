@@ -12,7 +12,7 @@ var previewTextLookup = {
 	"button_human": "+ 1 STR<br>+ 1 CHA<br>Perk: Compatible",
 	"button_elf": "- 2 STR<br>+ 2 DEX<br>+ 3 CHA<br>Perk: Ageless", 
 	"button_dwarf": "+ 4 STR<br>Perk: Scottish Accent",
-	"submitName": "Tell the ork your name.",	
+	"submitName": "Tell the ork your name.",
 	"return": "Go back.",
 	"button_drider": "Drider",
 	"drider_leave": "Return to the tavern.",

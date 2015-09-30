@@ -62,8 +62,9 @@ encounters.leave_tavern = {
 encounters.drider_intro = {
 	startEncounter: function (playerData) {
 		//Shows the square div (aka sprite) Search .square to find the hide one.
-		$(".square").show();
-		$('.square').css("background", "url(../_images/tavern_drider.png)");
+		$('.square').show();
+		$('.spriteSlot').fadeIn(400)[0].src;
+		$('.spriteSlot').attr("src", "_images/tavern_drider.png");
 		//Button Removal and Addition
 		createAndAddButton('.button_stack', {classes: 'newButton', id: 'drider_talk_01', text: 'Talk', click:getOnClick("drider_intro"), mouseenter: mousePreviewEnter, mouseleave: mousePreviewLeave});
 		if (playerData.sex == "female" && !GetPlayerCounter("drider_quest_accepted_counter") || GetPlayerCounter("drider_quest_accepted_counter") === 0) {

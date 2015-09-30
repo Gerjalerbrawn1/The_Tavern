@@ -58,7 +58,7 @@ input[type=nameInputBox]{
 	display:none;
 	color: #A0A0A0;
 }
-.square {
+.spriteSlot {
 	display:none;
 	background: no-repeat;
 	border: 1px solid #000000;

@@ -134,6 +134,9 @@ function createDefaultTavernButtons () {
 	if(GetPlayerCounter("drider_intro_counter") == 1) {
 		tavernIds["button_drider"] = "Cynthia";
 	}
+	if(GetPlayerCounter("hooded_figure_intro") == 1) {
+		tavernIds["button_hoodedfigure"] = "Morgan the Red";
+	}
 	//This is what to edit if you want to add more shared params to the set of buttons that's being created
 	createAndAddSetOfButtons(".button_stack", {classes: "newButton", mouseleave:mousePreviewLeave, mouseenter:mousePreviewEnter, click:getOnClick("default_tavern")}, tavernIds);
 }

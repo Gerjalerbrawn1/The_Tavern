@@ -21,6 +21,9 @@ var encounters = {
 	leave_tavern: {
 		//See encounter_tavern.js
 	},
+	hooded_into: {
+		//See encounter_tavern.js
+	},
 	drider_intro: {
 		//See encounter_tavern.js
 	},

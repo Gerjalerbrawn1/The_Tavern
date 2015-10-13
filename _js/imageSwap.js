@@ -1,6 +1,7 @@
 var characterSprite = {
 	"drider":"_images/tavern_drider.png",
-	"bartender": "_images/tavern_golem.png"
+	"bartender": "_images/tavern_golem.png",
+	"hooded_figure": "_images/tavern_orc.png"
 }
 
 function spriteShow (sprite) {

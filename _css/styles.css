@@ -15,9 +15,15 @@ h1 {
 	font-family:title_font; /* no .ttf */
 	font-size:18px;	
 }
-p, form, .optionPreview {
+form, .optionPreview {
 	font-family:rpg_font; /* no .ttf */
 	font-size:18px;	
+}
+
+p {
+	font-family:rpg_font; /* no .ttf */
+	font-size:18px;	
+	text-indent: 40px;
 }
 
 /* ### SUBMIT BOX ### */
@@ -57,4 +63,13 @@ input[type=nameInputBox]{
 .optionPreview {
 	display:none;
 	color: #A0A0A0;
+}
+.spriteSlot {
+	display:none;
+	background: no-repeat;
+	border: 1px solid #000000;
+	position: static;
+	float: right;
+	width: 364px;
+	height: 478px;
 }
